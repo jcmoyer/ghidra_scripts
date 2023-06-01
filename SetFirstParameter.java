@@ -78,8 +78,10 @@ public class SetFirstParameter extends GhidraScript {
                     }
                     this.println(fun.toString());
 
-                    var currentParams = fun.getParameters();
-                    currentParams[0].setDataType(changeTo, SourceType.USER_DEFINED);
+                    var params = fun.getParameters();
+                    if (params.length > 0) {
+                        params[0].setDataType(changeTo, SourceType.USER_DEFINED);
+                    }
                 }
             }
 
